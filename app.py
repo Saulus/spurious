@@ -21,7 +21,7 @@ colors = {
     'text': '#7FDBFF'
 }
 
-app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+app.layout = html.Div(style={'backgroundColor': colors['background'], 'columnCount': 2}, children=[
     html.H1(
         children='Hello Dash',
         style={
@@ -103,7 +103,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             )
         }
     )
-], style={'columnCount': 2})
+])
 
 if __name__ == '__main__':
     app.run_server(debug=True,port=8050,host='0.0.0.0')
