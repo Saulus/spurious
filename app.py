@@ -103,7 +103,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             )
         }
     )
-], style={'columnCount': 2}))
+], style={'columnCount': 2})
 
 if __name__ == '__main__':
     app.run_server(debug=True,port=8050,host='0.0.0.0')
