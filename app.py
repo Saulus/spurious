@@ -21,7 +21,7 @@ colors = {
     'text': '#7FDBFF'
 }
 
-app.layout = html.Div(style={'backgroundColor': colors['background'], 'columnCount': 2}, children=[
+app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
         children='Hello Dash',
         style={
@@ -35,34 +35,37 @@ app.layout = html.Div(style={'backgroundColor': colors['background'], 'columnCou
         'color': colors['text']
     }),
 
-    html.Label('Dropdown'),
-    dcc.Dropdown(
-        options=[
-            {'label': 'New York City', 'value': 'NYC'},
-            {'label': u'Montréal', 'value': 'MTL'},
-            {'label': 'San Francisco', 'value': 'SF'}
-        ],
-        value='MTL'
-    ),
-    
-    html.Label('Multi-Select Dropdown'),
-    dcc.Dropdown(
-        options=[
-            {'label': 'New York City', 'value': 'NYC'},
-            {'label': u'Montréal', 'value': 'MTL'},
-            {'label': 'San Francisco', 'value': 'SF'}
-        ],
-        value=['MTL', 'SF'],
-        multi=True
-    ),
+    html.Div([
 
-    html.Label('Slider'),
-    dcc.Slider(
-        min=0,
-        max=9,
-        marks={i: 'Label {}'.format(i) if i == 1 else str(i) for i in range(1, 6)},
-        value=5,
-    ),
+        html.Label('Dropdown'),
+        dcc.Dropdown(
+            options=[
+                {'label': 'New York City', 'value': 'NYC'},
+                {'label': u'Montréal', 'value': 'MTL'},
+                {'label': 'San Francisco', 'value': 'SF'}
+            ],
+            value='MTL'
+        ),
+    
+        html.Label('Multi-Select Dropdown'),
+        dcc.Dropdown(
+            options=[
+                {'label': 'New York City', 'value': 'NYC'},
+                {'label': u'Montréal', 'value': 'MTL'},
+                {'label': 'San Francisco', 'value': 'SF'}
+            ],
+            value=['MTL', 'SF'],
+            multi=True
+        ),
+
+        html.Label('Slider'),
+        dcc.Slider(
+            min=0,
+            max=9,
+            marks={i: 'Label {}'.format(i) if i == 1 else str(i) for i in range(1, 6)},
+            value=5,
+        )
+    ], style={'columnCount': 2}),
 
     dcc.Graph(
         id='example-graph',
